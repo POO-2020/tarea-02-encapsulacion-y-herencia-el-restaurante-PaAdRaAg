@@ -26,6 +26,7 @@ constructor({nombre,
     this._pedidos = new Array();
 }
 
+
 registrarProductos(producto){
     this._productos.push(producto);
 }
@@ -44,5 +45,37 @@ listarPedidos(){
     this._pedidos.forEach((pedido) =>{
         console.log(pedido.getResumen());
     });
+}
+
+registrarPedido(pedido){
+        if (this.buscar() == undefined){
+            this._pedidos.push(pedido);
+            return true;
+        }
+        return false;  
+}
+buscarPedido(pedido){
+    let resultado = this._pedidos.find(e => e.esIgualA(pedido));
+    return resultado;
+}
+
+eliminar(pedido){
+    let indice = this.buscarPedido(pedido);
+
+    if(indice < 0){
+        return false;
+    }
+    this._pedidos.splice(indice, 1);
+    return true;
+}
+
+actualizarPedido(pedido, nuevoPedido){
+    let indice = this.buscarPedido(pedido);
+
+    if(indice < 0){
+        return false;
+    }
+    this._pedidos.splice(indice, 1, nuevoPedido);
+    return true;
 }
 }

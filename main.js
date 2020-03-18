@@ -1,16 +1,29 @@
-import Tiempo from "./tiempo.js"
-import Fecha from "./fecha.js"
-import ElementoPedido from "./elementoPedido.js"
-import Cliente from "./cliente.js"
-import Direccion from "./direccion.js"
-import Precio from "./precio.js"
-import Producto from "./producto.js"
-import Pedido from "./pedido.js"
-import Restaurante from "./restaurante.js"
+import Tiempo from "./tiempo.js";
+import Fecha from "./fecha.js";
+import ElementoPedido from "./elementoPedido.js";
+import Cliente from "./cliente.js";
+import Direccion from "./direccion.js";
+import Precio from "./precio.js";
+import Producto from "./producto.js";
+import Pedido from "./pedido.js";
+import Restaurante from "./restaurante.js";
+import ClienteFrecuente from "./clienteFrecuente.js";
+
+var clienteF = new ClienteFrecuente({
+    nombre: "Josefa Ortíz Florencia",
+    direccion: new Direccion("Losaje", "1653"),
+    telefono: 3156498785,
+    numeroCliente: 241,
+    fechaRegistro: new Fecha(3, 5, 2017)
+})
 
 class Main{
     constructor(){
         this.restaurante = new Restaurante("Planetizza", 301569, new Direccion("Sevilla", 280, 6, "Colonia Procamación", 25489, "Colima", "Colima"));
+    }
+
+    clientesFrecuentes(){
+        console.log(clienteF.getPerfil());
     }
 
     registrarPedidos(){        
@@ -46,5 +59,6 @@ pedido3.agregarElemento(elemento3);
 pedido1.getCostoTotal(elemento1);
 
 var app = new Main();
-app.registrarPedidos();
-app.registrarProductos();
+/*app.registrarPedidos();
+app.registrarProductos();*/
+app.clientesFrecuentes();

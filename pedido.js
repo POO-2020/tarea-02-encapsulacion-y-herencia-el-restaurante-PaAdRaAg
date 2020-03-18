@@ -61,11 +61,11 @@ export default class Pedido {
     }
     
     getNumeroPedido(){
-        return this._numeroPedido
-        }
-        
-       _esIgual(pedido){
+        return `${this._numeroPedido}`    
+    }
+
+    _esIgualA(pedido){
         if(pedido.getNumeroPedido() == this._numeroPedido){ return true}
         else {return false}
-        }
+    }
 }
